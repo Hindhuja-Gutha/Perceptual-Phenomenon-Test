@@ -14,9 +14,9 @@ Perform the analysis in the space below. Remember to follow [the instructions](h
 In a dependent samples t-test, each subject or entity is measured twice, resulting in pairs of observations. Since same set of participants will go through and record time for same set of congruent & incongruent words, resulting in pairs of observations , mean time should be used to compare and dependent samples t-test should be performed. Here size of the dataset is 24 and selection of participants from general population is unknown. Assuming normal distribution for both congruent & Incongruent words condition.
 
 
-**Null Hypothesis H_0 ** - No difference in mean time taken to read congruent and incongruent list
+#### Null Hypothesis H_0  - No difference in mean time taken to read congruent and incongruent list
 
-**Alternate Hypothesis H_1 ** - Mean time to read incongruent list is greater than mean time to read congruent list
+#### Alternate Hypothesis H_1  - Mean time to read incongruent list is greater than mean time to read congruent list
 
  * H_0 : μ_ic = μ_c
 
@@ -27,7 +27,7 @@ In a dependent samples t-test, each subject or entity is measured twice, resulti
 
 ### (3) Report some descriptive statistics regarding this dataset. Include at least one measure of central tendency and at least one measure of variability. The name of the data file is 'stroopdata.csv'.
 
-**Import required libraries**
+#### import required libraries
 
 
 ```python
@@ -39,7 +39,7 @@ import matplotlib.pyplot as plt
 
 ```
 
-**Load .csv file to read dataset**
+#### Load .csv file to read dataset
 
 
 ```python
@@ -48,7 +48,7 @@ df=pd.read_csv('stroopdata.csv')
 
 ```
 
-**Print information about given Dataset**
+#### Print information about given Dataset
 
 
 ```python
@@ -71,10 +71,12 @@ df.info()
     memory usage: 464.0 bytes
 
 
-** There are 2 columns in given dataset: Congruent , Incongruent and It has 24 rows of data which means there are 24 individual participants . There are no non-null values which means Both columns are of equal size and no need to remove rows with at least one null value. Data type for storing Time taken to read Congruent & Incongruent lists is float.**
+* There are 2 columns in given dataset: Congruent , Incongruent and It has 24 rows of data which means there are 24 individual participants .
+* There are no non-null values which means Both columns are of equal size and no need to remove rows with at least one null value.
+* Data type for storing Time taken to read Congruent & Incongruent lists is float.
 
 
-**Print few rows in Dataset**
+#### Print few rows in Dataset
 
 
 ```python
@@ -85,19 +87,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -138,7 +127,7 @@ df.head()
 
 
 
-**Calculating central tendency & measure of variability **
+#### Calculating central tendency & measure of variability
 
 * The mean, median and mode are used to measure central tendency of data set
 * The Standard deviation, quantile Range and variance are used to measures variability of data set
@@ -268,7 +257,7 @@ stats.t.ppf(.90, len(df)-1)
 
 From above analysis we can say that t_statistic > t_critical . So we can reject the Null Hypothesis H_0  that there is no difference in mean time taken to read congruent and incongruent list
 
-(6) Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
+### (6) Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
 
 * I think it takes more time to read list in incongruent words condition compared to congruent words condition because mismatch of name of the color and color of the word can cause high probability of errors compared to words of same name and color.
 * A similar task would be comparing time taken to complete a marathon without training and with training.with training anyone would perform slightly better than without training
