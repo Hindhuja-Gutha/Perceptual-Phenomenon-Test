@@ -3,28 +3,29 @@
 Perform the analysis in the space below. Remember to follow [the instructions](https://docs.google.com/document/d/1-OkpZLjG_kX9J6LIQ5IltsqMzVWjh36QpnP2RYpVdPU/pub?embedded=True) and review the [project rubric](https://review.udacity.com/#!/rubrics/71/view) before submitting. Once you've completed the analysis and write-up, download this file as a PDF or HTML file, upload that PDF/HTML into the workspace here (click on the orange Jupyter icon in the upper left then Upload), then use the Submit Project button at the bottom of this page. This will create a zip file containing both this .ipynb doc and the PDF/HTML doc that will be submitted for your project.
 
 
-### 1. What is the independent variable? What is the dependent variable?
+### (1) What is the independent variable? What is the dependent variable?
 
 * There are 2 independent variables - a congruent words condition, and an incongruent words condition.
 
 * The dependent variable is time taken to name the ink colors in equally-sized Congruent & Incongruent lists.
 
-### 2. What is an appropriate set of hypotheses for this task? Specify your null and alternative hypotheses, and clearly define any notation used. Justify your choices.
+### (2) What is an appropriate set of hypotheses for this task? Specify your null and alternative hypotheses, and clearly define any notation used. Justify your choices.
 
-* Since same set of participants will go through and record time for same set of congruent & incongruent words, resulting in pairs of observations , mean time should be used to compare and dependent samples t-test should be performed
+In a dependent samples t-test, each subject or entity is measured twice, resulting in pairs of observations. Since same set of participants will go through and record time for same set of congruent & incongruent words, resulting in pairs of observations , mean time should be used to compare and dependent samples t-test should be performed. Here size of the dataset is 24 and selection of participants from general population is unknown. Assuming normal distribution for both congruent & Incongruent words condition.
 
 
-**Null Hypothesis H_0 - No difference in mean time taken to read congruent and incongruent list**
+**Null Hypothesis H_0 ** - No difference in mean time taken to read congruent and incongruent list
 
-**Alternate Hypothesis H_1 - Mean time to read incongruent list is greater than mean time to read** congruent list
+**Alternate Hypothesis H_1 ** - Mean time to read incongruent list is greater than mean time to read congruent list
 
  * H_0 : μ_ic = μ_c
 
- * H_1 : μ_ic > μ_c
+ * H_1 : μic > μ_c
 
- Where μ_ic is mean time taken to read incongruent list and μ_c is mean time taken to read congruent list
+ Where μ_ic is mean time taken to read words in incongruent condition and μ_c is mean time taken to read words in congruent condition
 
-### 3. Report some descriptive statistics regarding this dataset. Include at least one measure of central tendency and at least one measure of variability. The name of the data file is 'stroopdata.csv'.
+
+### (3) Report some descriptive statistics regarding this dataset. Include at least one measure of central tendency and at least one measure of variability. The name of the data file is 'stroopdata.csv'.
 
 **Import required libraries**
 
@@ -70,7 +71,7 @@ df.info()
     memory usage: 464.0 bytes
 
 
-** There are 2 columns in given dataset: Congruent , Incongruent and It has 24 rows of data which means there are 24 individual participants . There are no non-null values which means Both columns are of equal size and no need to remove rows with atleast one null value. Data type for storing Time taken to read Congruent & Incongruent lists is float. **
+** There are 2 columns in given dataset: Congruent , Incongruent and It has 24 rows of data which means there are 24 individual participants . There are no non-null values which means Both columns are of equal size and no need to remove rows with at least one null value. Data type for storing Time taken to read Congruent & Incongruent lists is float.**
 
 
 **Print few rows in Dataset**
@@ -183,7 +184,7 @@ print('\nCongruent Variance :: ',C_Variance,'            Incongruent Variance ::
     Congruent Variance ::  12.669029070652174             Incongruent Variance ::  23.011757036231884
 
 
-### 4. Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
+### (4) Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
 
 
 ```python
@@ -211,7 +212,7 @@ plt.show()
 * Least frequency for Congruent list is around 20 seconds
 * Least frequency for Incongruent list is around 16 seconds
 
-### 5. Now, perform the statistical test and report your results. What is your confidence level or Type I error associated with your test? What is your conclusion regarding the hypotheses you set up? Did the results match up with your expectations? **Hint:**  Think about what is being measured on each individual, and what statistic best captures how an individual reacts in each environment.
+### (5)  Now, perform the statistical test and report your results. What is your confidence level or Type I error associated with your test? What is your conclusion regarding the hypotheses you set up? Did the results match up with your expectations? **Hint:**  Think about what is being measured on each individual, and what statistic best captures how an individual reacts in each environment.
 
 Calculate Mean Difference of Congruent & Incongruent List
 
@@ -267,7 +268,13 @@ stats.t.ppf(.90, len(df)-1)
 
 From above analysis we can say that t_statistic > t_critical . So we can reject the Null Hypothesis H_0  that there is no difference in mean time taken to read congruent and incongruent list
 
-### 6. Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
+(6) Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
 
 * I think it takes more time to read list in incongruent words condition compared to congruent words condition because mismatch of name of the color and color of the word can cause high probability of errors compared to words of same name and color.
 * A similar task would be comparing time taken to complete a marathon without training and with training.with training anyone would perform slightly better than without training
+
+
+### References
+
+* http://www.statisticssolutions.com/dependent-sample-t-test/
+* http://www.statisticshowto.com/probability-and-statistics/t-test/
