@@ -3,29 +3,28 @@
 Perform the analysis in the space below. Remember to follow [the instructions](https://docs.google.com/document/d/1-OkpZLjG_kX9J6LIQ5IltsqMzVWjh36QpnP2RYpVdPU/pub?embedded=True) and review the [project rubric](https://review.udacity.com/#!/rubrics/71/view) before submitting. Once you've completed the analysis and write-up, download this file as a PDF or HTML file, upload that PDF/HTML into the workspace here (click on the orange Jupyter icon in the upper left then Upload), then use the Submit Project button at the bottom of this page. This will create a zip file containing both this .ipynb doc and the PDF/HTML doc that will be submitted for your project.
 
 
-(1) What is the independent variable? What is the dependent variable?
+### 1. What is the independent variable? What is the dependent variable?
 
-* There are 2 independent variables - a congruent words condition, and an incongruent words condition. 
+* There are 2 independent variables - a congruent words condition, and an incongruent words condition.
 
 * The dependent variable is time taken to name the ink colors in equally-sized Congruent & Incongruent lists.
 
-(2) What is an appropriate set of hypotheses for this task? Specify your null and alternative hypotheses, and clearly define any notation used. Justify your choices.
+### 2. What is an appropriate set of hypotheses for this task? Specify your null and alternative hypotheses, and clearly define any notation used. Justify your choices.
 
-Since same set of participants will go through and record time for same set of congruent & incongruent words, resulting in pairs of observations , mean time should be used to compare and dependent samples t-test should be performed
+* Since same set of participants will go through and record time for same set of congruent & incongruent words, resulting in pairs of observations , mean time should be used to compare and dependent samples t-test should be performed
 
 
-**Null Hypothesis $H_{0}$** - No difference in mean time taken to read congruent and incongruent list
+**Null Hypothesis H_0 - No difference in mean time taken to read congruent and incongruent list**
 
-**Alternate Hypothesis $H_{1}$** - Mean time to read incongruent list is greater than mean time to read congruent list
+**Alternate Hypothesis H_1 - Mean time to read incongruent list is greater than mean time to read** congruent list
 
- * $H_{0}$ : $μ_{ic}$ = $μ_{c}$ 
-   
- * $H_{1}$ : $μ_{ic}$ > $μ_{c}$
- 
- Where $μ_{ic}$ is mean time taken to read incongruent list and $μ_{c}$ is mean time taken to read congruent list
- 
+ * H_0 : μ_ic = μ_c
 
-(3) Report some descriptive statistics regarding this dataset. Include at least one measure of central tendency and at least one measure of variability. The name of the data file is 'stroopdata.csv'.
+ * H_1 : μ_ic > μ_c
+
+ Where μ_ic is mean time taken to read incongruent list and μ_c is mean time taken to read congruent list
+
+### 3. Report some descriptive statistics regarding this dataset. Include at least one measure of central tendency and at least one measure of variability. The name of the data file is 'stroopdata.csv'.
 
 **Import required libraries**
 
@@ -61,7 +60,7 @@ df.info()
 
     Number of rows in dataset ::  24
     Number of columns in dataset ::  2
-    dataset information :: 
+    dataset information ::
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 24 entries, 0 to 23
     Data columns (total 2 columns):
@@ -71,7 +70,7 @@ df.info()
     memory usage: 464.0 bytes
 
 
-** There are 2 columns in given dataset: Congruent , Incongruent and It has 24 rows of data which means there are 24 individual participants . There are no non-null values which means Both columns are of equal size and no need to remove rows with atleast one null value. Data type for storing Time taken to read Congruent & Incongruent lists is float.**
+** There are 2 columns in given dataset: Congruent , Incongruent and It has 24 rows of data which means there are 24 individual participants . There are no non-null values which means Both columns are of equal size and no need to remove rows with atleast one null value. Data type for storing Time taken to read Congruent & Incongruent lists is float. **
 
 
 **Print few rows in Dataset**
@@ -139,7 +138,7 @@ df.head()
 
 
 **Calculating central tendency & measure of variability **
- 
+
 * The mean, median and mode are used to measure central tendency of data set
 * The Standard deviation, quantile Range and variance are used to measures variability of data set
 
@@ -172,19 +171,19 @@ print('\nCongruent Variance :: ',C_Variance,'            Incongruent Variance ::
     Congruent Mean               ::  14.051125000000004   Incongruent Mean   :: 22.01591666666667
     Congruent Median             ::  14.3565              Incongruent Median :: 21.0175
     Congruent Mode               ::  [8.63]               Incongruent Mode   ::  [15.687]
-    
+
     Congruent Standard Deviation ::  3.4844157127666326    Incongruent Standard Deviation :: 4.696055134513317
-    
-    Quantile Range :: 
+
+    Quantile Range ::
           Congruent  Incongruent
     0.25   11.89525     18.71675
     0.50   14.35650     21.01750
     0.75   16.20075     24.05150
-    
+
     Congruent Variance ::  12.669029070652174             Incongruent Variance ::  23.011757036231884
 
 
-(4) Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
+### 4. Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
 
 
 ```python
@@ -212,9 +211,9 @@ plt.show()
 * Least frequency for Congruent list is around 20 seconds
 * Least frequency for Incongruent list is around 16 seconds
 
-(5)  Now, perform the statistical test and report your results. What is your confidence level or Type I error associated with your test? What is your conclusion regarding the hypotheses you set up? Did the results match up with your expectations? **Hint:**  Think about what is being measured on each individual, and what statistic best captures how an individual reacts in each environment.
+### 5. Now, perform the statistical test and report your results. What is your confidence level or Type I error associated with your test? What is your conclusion regarding the hypotheses you set up? Did the results match up with your expectations? **Hint:**  Think about what is being measured on each individual, and what statistic best captures how an individual reacts in each environment.
 
-Calculate Mean Difference of Congruent & Incongruent List 
+Calculate Mean Difference of Congruent & Incongruent List
 
 
 ```python
@@ -226,7 +225,7 @@ print('Mean Difference :: ',Mean_Diff)
     Mean Difference ::  7.964791666666665
 
 
-Calculate Standard deviation Difference of Congruent & Incongruent List 
+Calculate Standard deviation Difference of Congruent & Incongruent List
 
 
 ```python
@@ -240,7 +239,7 @@ print('Standard Deviation Difference :: ',Std_Dev_Diff)
 
 
 
-$t_{statistic}$ is (Mean difference)/(Standard Deviation difference/square root of Dataset length))
+t_statistic is (Mean difference)/(Standard Deviation difference/square root of Dataset length))
 
 
 ```python
@@ -251,7 +250,7 @@ print('t_statistic :: ',t_statistic)
     t_statistic ::  8.020706944109955
 
 
-$t_{critical}$ value for a 90% confidence level and (no of participants-1) d.f.
+t_critical value for a 90% confidence level and (no of participants-1) d.f.
 
 
 
@@ -266,10 +265,9 @@ stats.t.ppf(.90, len(df)-1)
 
 
 
-From above analysis we can say that $t_{statistic}$ > $t_{critical}$ . So we can reject the Null Hypothesis $H_{0}$  that there is no difference in mean time taken to read congruent and incongruent list
+From above analysis we can say that t_statistic > t_critical . So we can reject the Null Hypothesis H_0  that there is no difference in mean time taken to read congruent and incongruent list
 
-(6) Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
+### 6. Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
 
 * I think it takes more time to read list in incongruent words condition compared to congruent words condition because mismatch of name of the color and color of the word can cause high probability of errors compared to words of same name and color.
 * A similar task would be comparing time taken to complete a marathon without training and with training.with training anyone would perform slightly better than without training
-
